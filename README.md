@@ -22,3 +22,6 @@ HomePage：主界面，开关排行榜。
 TipsDialog：提示框，显示玩家信息。
 
 TitleDialog：标题信息。
+
+#### 列表复用
+使用 Super ScrollView 插件，重要方法包括初始化方法 InitListView方法和 OnGetItemIndex方法。
