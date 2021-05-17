@@ -9,6 +9,9 @@ public class HomePage : MonoBehaviour
     private RankDialog rankTable;
     private bool isInit;
     
+    /// <summary>
+    /// 打开排行榜
+    /// </summary>
     public void OpenRank()
     {
         if (!isInit)

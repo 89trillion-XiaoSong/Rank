@@ -8,6 +8,7 @@ public struct RankProduct
     public string nickName;
     public int avatar;
     public int trophy;
+    public int rank;
 }
 
 public class ItemConfig
@@ -20,6 +21,9 @@ public class ItemConfig
         JsonLoad();
     }
 
+    /// <summary>
+    /// 加载JSON文件
+    /// </summary>
     private void JsonLoad()
     {
         var jsonFile = Resources.Load<TextAsset>("Json/ranklist");

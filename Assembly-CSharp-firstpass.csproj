@@ -51,6 +51,21 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Plugins\SimpleJSON.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\Common\ClickEventListener.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\Common\CommonDefine.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\Common\ItemPosMgr.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\GridView\GridItemGroup.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\GridView\LoopGridItemPool.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\GridView\LoopGridView.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\GridView\LoopGridViewItem.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\ListView\LoopListItemPool.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\ListView\LoopListView2.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\ListView\LoopListViewItem2.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\StaggeredGridView\LoopStaggeredGridView.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\StaggeredGridView\LoopStaggeredGridViewItem.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemGroup.cs" />
+     <Compile Include="Assets\Plugins\SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemPool.cs" />
+     <None Include="Assets\Plugins\SuperScrollView\Scripts\Version 2.4.2.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/fengxiaosong/Desktop/Unity项目/Rank/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

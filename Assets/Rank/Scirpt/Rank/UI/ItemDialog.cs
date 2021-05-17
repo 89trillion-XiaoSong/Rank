@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,13 +21,13 @@ public class ItemDialog : MonoBehaviour,IPointerClickHandler
     private RankProduct m_RankProduct;
     
     //初始化
-    public void Init(RankProduct rankProduct,int ranking,TipsDialog tipsDialog)
+    public void Init(RankProduct rankProduct,TipsDialog tipsDialog)
     {
-        this.ranking = ranking;
-        this.tipsDialog = tipsDialog;
-        m_RankProduct = rankProduct;
+        ranking = rankProduct.rank;     //排名
+        this.tipsDialog = tipsDialog;   //提示页面
+        m_RankProduct = rankProduct;    //数据列表
         
-        if (ranking < 3)
+        if (ranking < 3)                //前三名
         {
             txtRanking.gameObject.SetActive(false);
             imgRanking.gameObject.SetActive(true);
@@ -38,7 +36,10 @@ public class ItemDialog : MonoBehaviour,IPointerClickHandler
         }
         else
         {
+            txtRanking.gameObject.SetActive(true);
+            imgRanking.gameObject.SetActive(false);
             txtRanking.text = (ranking+1).ToString();
+            itemBackGround.sprite = itemBackGroundList[3];
         }
 
         txtUserName.text = rankProduct.nickName;
@@ -47,6 +48,7 @@ public class ItemDialog : MonoBehaviour,IPointerClickHandler
         imgRank.sprite = rankList[rankProduct.trophy / 1000];
     }
 
+    //Toast 消息框
     public void OnPointerClick(PointerEventData eventData)
     {
         tipsDialog.Init(m_RankProduct,ranking);

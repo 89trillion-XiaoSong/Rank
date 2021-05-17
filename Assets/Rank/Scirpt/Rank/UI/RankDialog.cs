@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using SuperScrollView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +12,11 @@ public class RankDialog : MonoBehaviour
     [SerializeField] private TitleDialog titleDialog;
     
     public Transform content;
+    private int countDown;                                  //倒计时
 
-    private List<RankProduct> m_RankProductList = new List<RankProduct>();
-    private List<ItemDialog> m_ItemConfigs = new List<ItemDialog>();
-
-    private int countDown;
+    private List<RankProduct> m_RankProductList = new List<RankProduct>();      //数据列表
+    public LoopListView2 mLoopListView;                                         //列表复用
+    
 
     //初始化页面
     public void Init()
@@ -27,6 +27,8 @@ public class RankDialog : MonoBehaviour
         
         InitCountDown();
         InitItem();
+        
+        mLoopListView.InitListView(m_RankProductList.Count,OnGetItemByIndex);
     }
 
     //初始化item
@@ -39,13 +41,38 @@ public class RankDialog : MonoBehaviour
         int listCount = m_RankProductList.Count;
         for (int i = 0; i < listCount; i++)
         {
-            ItemDialog itemDialog = Instantiate(rankItem, content);
-            itemDialog.Init(m_RankProductList[i], i,tipsDialog);
-            m_ItemConfigs.Add(itemDialog);
+            RankProduct rankProduct = m_RankProductList[i];
+            rankProduct.rank = i;
+            m_RankProductList[i] = rankProduct;
         }
     }
-    
 
+    // 列表复用
+    // ReSharper disable Unity.PerformanceAnalysis
+    LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView2, int index)
+    {
+        int listCount = m_RankProductList.Count;
+        if (index < 0 || index >= listCount)
+        {
+            return null;
+        }
+
+        RankProduct rankProduct = m_RankProductList[index];
+
+        LoopListViewItem2 item = listView2.NewListViewItem("RankItem");
+        ItemDialog itemDialog = item.GetComponent<ItemDialog>();
+        
+        if (item.IsInitHandlerCalled == false)
+        {
+            item.IsInitHandlerCalled = true;
+            
+        }
+
+        itemDialog.Init(rankProduct, tipsDialog);
+        return item;
+    }
+
+    
     //关闭页面
     public void CloseRankDialog()
     {
