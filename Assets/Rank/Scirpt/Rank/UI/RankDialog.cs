@@ -63,18 +63,17 @@ public class RankDialog : MonoBehaviour
 
         LoopListViewItem2 item = listView2.NewListViewItem("RankItem");
         ItemDialog itemDialog = item.GetComponent<ItemDialog>();
-        
-        
+
         if (item.IsInitHandlerCalled == false)
         {
             item.IsInitHandlerCalled = true;    
         }
-
+        
         itemDialog.Init(rankProduct, tipsDialog);
         return item;
     }
 
-    
+
     //关闭页面
     public void CloseRankDialog()
     {
