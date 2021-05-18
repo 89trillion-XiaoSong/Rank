@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HomePage : MonoBehaviour
 {
     [SerializeField] private RankDialog prbRank;
-
+    [SerializeField] private TimeUtils m_TimeUtils;
+    
     private RankDialog rankTable;
     private bool isInit;
     
@@ -18,7 +17,10 @@ public class HomePage : MonoBehaviour
         {
             rankTable= Instantiate(prbRank,transform);
             isInit = true;
+            rankTable.timeUtils = m_TimeUtils;
             rankTable.Init();
+            
+            m_TimeUtils.InitCountDown(rankTable.countDown);
         }
         else
         {

@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeUtils : MonoBehaviour
 {
+    //每秒调用事件去刷新text
+    public delegate void countDownHanlder(int timeCount);
+    public event countDownHanlder CountDownChange;
+    
     /// <summary>
     /// 时间格式化
     /// </summary>
@@ -20,14 +25,25 @@ public class TimeUtils : MonoBehaviour
         return string.Format("End in:{0}d {1}h {2}m {3}s", d, h, m, s);
     }
 
-    //列表排序
-    public static void GetList(List<RankProduct> list)
+    //开始倒计时协程
+    public void InitCountDown(int countDown)
     {
-        list.Sort(
-            delegate(RankProduct p1, RankProduct p2)
+        StartCoroutine(CountDown(countDown));
+    }
+
+    //倒计时协程
+    private IEnumerator CountDown(int timeCount)
+    {
+        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
+        while (timeCount > 0)
+        {
+            yield return waitForSeconds;
+            timeCount--;
+            
+            if (CountDownChange != null)
             {
-                return p2.trophy.CompareTo(p1.trophy);
+                CountDownChange(timeCount);
             }
-            );
+        }
     }
 }

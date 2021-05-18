@@ -56,6 +56,7 @@
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\RankDialog.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\TipsDialog.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\TitleDialog.cs" />
+     <Compile Include="Assets\Rank\Scirpt\Utils\ListSort.cs" />
      <Compile Include="Assets\Rank\Scirpt\Utils\TimeUtils.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/fengxiaosong/Desktop/Unity项目/Rank/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

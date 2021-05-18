@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TipsDialog : MonoBehaviour
@@ -8,6 +6,7 @@ public class TipsDialog : MonoBehaviour
     [SerializeField] private Text txtUser;
     [SerializeField] private Text txtRank;
 
+    //消息框初始化
     public void Init(RankProduct rankProduct,int ranking)
     {
         txtUser.text = "User:" + rankProduct.uid;
@@ -16,7 +15,7 @@ public class TipsDialog : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-
+    //关闭
     public void Close()
     {
         gameObject.SetActive(false);

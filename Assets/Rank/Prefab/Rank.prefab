@@ -387,12 +387,12 @@ GameObject:
   - component: {fileID: 6109423380792462739}
   - component: {fileID: 6422707671815719280}
   m_Layer: 5
-  m_Name: txt_Ranking
+  m_Name: img_Ranking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4602561058598238548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -851,7 +851,9 @@ MonoBehaviour:
     type: 3}
   tipsDialog: {fileID: 4154759169279977637}
   titleDialog: {fileID: 7649482861901386898}
+  timeUtils: {fileID: 0}
   content: {fileID: 3931129195205668378}
+  countDown: 0
   mLoopListView: {fileID: 7892543032987975604}
 --- !u!1 &3931129194382498385
 GameObject:
@@ -1023,6 +1025,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtUserName: {fileID: 3931129195948726788}
   txtTrophy: {fileID: 3931129195128660095}
+  txtRanking: {fileID: 3931129195989918867}
+  imgRanking: {fileID: 6422707671815719280}
+  imgRank: {fileID: 3931129195113249701}
+  rankingList:
+  - {fileID: 21300000, guid: 5d3b0a7d8d3ae457aadb37cd944ed436, type: 3}
+  - {fileID: 21300000, guid: ad013c830d9a6446385b117baf69abf4, type: 3}
+  - {fileID: 21300000, guid: 7f0f6447edd174f5ca8d0d996cf2dd55, type: 3}
+  rankList:
+  - {fileID: 21300000, guid: c6832c96ee5b348e280c6d2bd3da6fa5, type: 3}
+  - {fileID: 21300000, guid: d071b4e302ebd4ff9a328a0689a23ab6, type: 3}
+  - {fileID: 21300000, guid: d071b4e302ebd4ff9a328a0689a23ab6, type: 3}
+  - {fileID: 21300000, guid: 5024711d2e86d48cca0f44fb4d8228ef, type: 3}
+  - {fileID: 21300000, guid: 7a1805397cb884e43a804f1c426977be, type: 3}
+  - {fileID: 21300000, guid: df048b5a487a6446c81a65647f7d53ed, type: 3}
+  - {fileID: 21300000, guid: df8cad6bf501246578d54a2a89d237a0, type: 3}
+  - {fileID: 21300000, guid: 802388c2ef7164e6fa709030200c06f6, type: 3}
+  - {fileID: 21300000, guid: 0c75074b9f4464ed3b2f422804793964, type: 3}
+  - {fileID: 21300000, guid: 343503bfe234f4a489bc0cec369754ca, type: 3}
+  - {fileID: 21300000, guid: b71f5d2599efa4601926eb52efe1d416, type: 3}
+  - {fileID: 21300000, guid: 5cb2aaf9fd0ff4ea7888257b46902124, type: 3}
+  - {fileID: 21300000, guid: 923391c860c9e45c99bfa0947be7f118, type: 3}
+  - {fileID: 21300000, guid: 1d9d21f8e90804e0c96985152c89b918, type: 3}
+  - {fileID: 21300000, guid: 070cfaec1110847bca65155159f11602, type: 3}
 --- !u!1 &3931129194655619714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1359,7 @@ RectTransform:
   m_GameObject: {fileID: 3931129195113249707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12810344, y: 0.12810344, z: 0.12810344}
+  m_LocalScale: {x: 0.107827224, y: 0.107827224, z: 0.107827224}
   m_Children: []
   m_Father: {fileID: 3931129194654471862}
   m_RootOrder: 4
@@ -1371,7 +1396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 802388c2ef7164e6fa709030200c06f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6832c96ee5b348e280c6d2bd3da6fa5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1458,7 +1483,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1900
+  m_Text: 0
 --- !u!1 &3931129195205668377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,8 +1707,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -6.649292, y: -17}
+  m_AnchoredPosition: {x: 0, y: -15.399963}
+  m_SizeDelta: {x: -6.649292, y: -32.411743}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3931129195257211447
 CanvasRenderer:
@@ -1858,7 +1883,7 @@ MonoBehaviour:
   - mItemPrefab: {fileID: 2850046339904792519, guid: 63c89e50b8d8f4977a5d952d92b04f91,
       type: 3}
     mPadding: 10
-    mInitCreateCount: 7
+    mInitCreateCount: 3
     mStartPosOffset: 5
   mArrangeType: 0
   mSupportScrollBar: 1
@@ -2270,7 +2295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3931129195989918866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2330,7 +2355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!1 &6237459765515670492
 GameObject:
   m_ObjectHideFlags: 0

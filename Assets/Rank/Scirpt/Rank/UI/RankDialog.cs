@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SuperScrollView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +10,10 @@ public class RankDialog : MonoBehaviour
     [SerializeField] private TipsDialog tipsDialog;
     [SerializeField] private TitleDialog titleDialog;
     
+    [HideInInspector] public TimeUtils timeUtils;
+    
     public Transform content;
-    private int countDown;                                  //倒计时
+    public int countDown;                                  //倒计时
 
     private List<RankProduct> m_RankProductList = new List<RankProduct>();      //数据列表
     public LoopListView2 mLoopListView;                                         //列表复用
@@ -25,8 +26,9 @@ public class RankDialog : MonoBehaviour
         m_RankProductList = itemConfig.rankProductList;
         countDown = itemConfig.countDown;
         
-        InitCountDown();
         InitItem();
+
+        timeUtils.CountDownChange += SetCountDown;
         
         mLoopListView.InitListView(m_RankProductList.Count,OnGetItemByIndex);
     }
@@ -34,9 +36,9 @@ public class RankDialog : MonoBehaviour
     //初始化item
     private void InitItem()
     {
-        TimeUtils.GetList(m_RankProductList);
+        ListSort.Sort(m_RankProductList);
 
-        titleDialog.Init(m_RankProductList[0]);
+        titleDialog.Init(m_RankProductList[0],0);
         
         int listCount = m_RankProductList.Count;
         for (int i = 0; i < listCount; i++)
@@ -62,10 +64,10 @@ public class RankDialog : MonoBehaviour
         LoopListViewItem2 item = listView2.NewListViewItem("RankItem");
         ItemDialog itemDialog = item.GetComponent<ItemDialog>();
         
+        
         if (item.IsInitHandlerCalled == false)
         {
-            item.IsInitHandlerCalled = true;
-            
+            item.IsInitHandlerCalled = true;    
         }
 
         itemDialog.Init(rankProduct, tipsDialog);
@@ -79,22 +81,10 @@ public class RankDialog : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //倒计时
-    private void InitCountDown()
+    //刷新倒计时text
+    private void SetCountDown(int timeCount)
     {
-        StartCoroutine(CountDown(countDown));
-    }
-    
-    //倒计时协程
-    private IEnumerator CountDown(int timeCount)
-    {
-        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
-        while (timeCount > 0)
-        {
-            txtCountDown.text = TimeUtils.GetTime(timeCount);
-            yield return waitForSeconds;
-            timeCount--;
-            txtCountDown.text = TimeUtils.GetTime(timeCount);
-        }
+        txtCountDown.text = TimeUtils.GetTime(timeCount);
+        txtCountDown.text = TimeUtils.GetTime(timeCount);
     }
 }
