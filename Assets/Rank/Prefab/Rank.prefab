@@ -854,7 +854,8 @@ MonoBehaviour:
   timeUtils: {fileID: 0}
   content: {fileID: 3931129195205668378}
   countDown: 0
-  mLoopListView: {fileID: 7892543032987975604}
+  mLoopListView: {fileID: 0}
+  scrollList: {fileID: 46658420645596679}
 --- !u!1 &3931129194382498385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1772,7 @@ GameObject:
   - component: {fileID: 3931129195344896882}
   - component: {fileID: 3931129195344896881}
   - component: {fileID: 3931129195344896880}
-  - component: {fileID: 7892543032987975604}
+  - component: {fileID: 46658420645596679}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -1866,7 +1867,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7892543032987975604
+--- !u!114 &46658420645596679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1875,20 +1876,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3931129195344896886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e190d043ef387ee4fad4acea6146931e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3994d7f124d44369a0dc83c6951888e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mItemPrefabDataList:
-  - mItemPrefab: {fileID: 2850046339904792519, guid: 63c89e50b8d8f4977a5d952d92b04f91,
-      type: 3}
-    mPadding: 30
-    mInitCreateCount: 3
-    mStartPosOffset: 0
-  mArrangeType: 0
-  mSupportScrollBar: 1
-  mItemSnapEnable: 0
-  mViewPortSnapPivot: {x: 0, y: 0}
-  mItemSnapPivot: {x: 0, y: 0}
+  ChildObj: {fileID: 7342040355848638817, guid: 63c89e50b8d8f4977a5d952d92b04f91,
+    type: 3}
+  RowPadding: 15
+  PreAllocHeight: 0
 --- !u!1 &3931129195393905007
 GameObject:
   m_ObjectHideFlags: 0

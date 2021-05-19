@@ -18,7 +18,8 @@ public class RankDialog : MonoBehaviour
     private List<RankProduct> m_RankProductList = new List<RankProduct>();      //数据列表
     public LoopListView2 mLoopListView;                                         //列表复用
     
-
+    public RecyclingListView scrollList;
+    
     //初始化页面
     public void Init()
     {
@@ -30,9 +31,18 @@ public class RankDialog : MonoBehaviour
 
         timeUtils.CountDownChange += SetCountDown;
         
-        mLoopListView.InitListView(m_RankProductList.Count,OnGetItemByIndex);
+        //列表复用
+        scrollList.ItemCallback = PopulateItem;
+        scrollList.RowCount = m_RankProductList.Count;
     }
 
+
+    private void PopulateItem(RecyclingListViewItem item, int rowIndex)
+    {
+        var child = item as ItemDialog;
+        child.Init(m_RankProductList[rowIndex],tipsDialog);
+    }
+    
     //初始化item
     private void InitItem()
     {
@@ -48,31 +58,7 @@ public class RankDialog : MonoBehaviour
             m_RankProductList[i] = rankProduct;
         }
     }
-
-    // 列表复用
-    // ReSharper disable Unity.PerformanceAnalysis
-    LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView2, int index)
-    {
-        int listCount = m_RankProductList.Count;
-        if (index < 0 || index >= listCount)
-        {
-            return null;
-        }
-
-        RankProduct rankProduct = m_RankProductList[index];
-
-        LoopListViewItem2 item = listView2.NewListViewItem("RankItem");
-        ItemDialog itemDialog = item.GetComponent<ItemDialog>();
-
-        if (item.IsInitHandlerCalled == false)
-        {
-            item.IsInitHandlerCalled = true;    
-        }
-        
-        itemDialog.Init(rankProduct, tipsDialog);
-        return item;
-    }
-
+    
 
     //关闭页面
     public void CloseRankDialog()

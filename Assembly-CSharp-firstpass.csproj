@@ -50,6 +50,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\RecyclingList\RecyclingListView.cs" />
+     <Compile Include="Assets\Plugins\RecyclingList\RecyclingListViewItem.cs" />
      <Compile Include="Assets\Plugins\SimpleJSON.cs" />
      <Compile Include="Assets\Plugins\SuperScrollView\Scripts\Common\ClickEventListener.cs" />
      <Compile Include="Assets\Plugins\SuperScrollView\Scripts\Common\CommonDefine.cs" />
