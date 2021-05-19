@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RankDialog : MonoBehaviour
 {
     [SerializeField] private Text txtCountDown;
-    [SerializeField] private ItemDialog rankItem;
+    [SerializeField] private Item rankItem;
     [SerializeField] private TipsDialog tipsDialog;
     [SerializeField] private TitleDialog titleDialog;
     
@@ -39,7 +39,7 @@ public class RankDialog : MonoBehaviour
 
     private void PopulateItem(RecyclingListViewItem item, int rowIndex)
     {
-        var child = item as ItemDialog;
+        var child = item as Item;
         child.Init(m_RankProductList[rowIndex],tipsDialog);
     }
     

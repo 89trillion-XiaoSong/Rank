@@ -52,7 +52,7 @@
   <ItemGroup>
      <Compile Include="Assets\Rank\Scirpt\Rank\Data\ItemConfig.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\HomePage.cs" />
-     <Compile Include="Assets\Rank\Scirpt\Rank\UI\ItemDialog.cs" />
+     <Compile Include="Assets\Rank\Scirpt\Rank\UI\Item.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\RankDialog.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\TipsDialog.cs" />
      <Compile Include="Assets\Rank\Scirpt\Rank\UI\TitleDialog.cs" />
